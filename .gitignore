@@ -1,5 +1,6 @@
 # executable files
 */*a.out
+push_swap
 
 # object files
 */*.o
@@ -15,3 +16,4 @@ compile_commands.json
 
 # My local playground directory
 lab/
+test/
