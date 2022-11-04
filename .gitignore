@@ -16,3 +16,4 @@ compile_commands.json
 
 # My local playground directory
 lab/
+test/

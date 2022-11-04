@@ -3,6 +3,9 @@ NAME := push_swap
 SRCS_DIR := ./srcs
 OBJS_DIR := ./obj
 SRCS := main.c \
+		ft_atoi.c \
+		ft_atoi_int.c \
+		args_utils.c \
 
 OBJS := $(SRCS:.c=.o)
 SRCS := $(addprefix $(SRCS_DIR)/, $(SRCS))
