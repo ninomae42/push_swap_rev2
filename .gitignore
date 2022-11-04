@@ -1,5 +1,6 @@
 # executable files
 */*a.out
+push_swap
 
 # object files
 */*.o
