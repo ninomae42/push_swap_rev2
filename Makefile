@@ -38,3 +38,8 @@ fclean: clean
 
 .PHONY: re
 re: fclean all
+
+.PHONY: norm
+norm:
+	-@norminette includes/
+	-@norminette srcs/
