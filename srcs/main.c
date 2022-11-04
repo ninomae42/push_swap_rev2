@@ -2,13 +2,15 @@
 
 int	main(int argc, char **argv)
 {
-	size_t	i;
-	int		ret;
-	int		err;
+	size_t		i;
+	int			ret;
+	int			err;
+	t_dstack	*stack_a;
 
 	if (argc < 2)
 		exit(EXIT_SUCCESS);
 	i = 1;
+	stack_a = dstack_init();
 	while (argv[i] != NULL)
 	{
 		if (!is_argument_valid(argv[i]))
@@ -23,9 +25,38 @@ int	main(int argc, char **argv)
 			printf("error occured, with [code: %d, value: %s]\n", err, argv[i]);
 			exit(EXIT_FAILURE);
 		}
-		printf("%d ", ret);
+		dstack_push_back(stack_a, ret);
 		i++;
 	}
-	printf("\n");
+	t_dstack *stack_b =  dstack_copy(stack_a);
+	dstack_print(stack_a);
+	
+	dstack_pop_front(stack_a);
+	dstack_print(stack_a);
+
+	dstack_pop_front(stack_a);
+	dstack_print(stack_a);
+
+	dstack_pop_front(stack_a);
+	dstack_print(stack_a);
+
+	dstack_pop_front(stack_a);
+	dstack_print(stack_a);
+
+	dstack_pop_front(stack_a);
+	dstack_print(stack_a);
+
+	dstack_pop_front(stack_a);
+	dstack_print(stack_a);
+
+	dstack_pop_front(stack_a);
+	dstack_print(stack_a);
+
+	dstack_clear(stack_a);
+	dstack_print(stack_a);
+	dstack_print(stack_b);
+	dstack_clear(stack_b);
+	dstack_print(stack_b);
+	dstack_clear(stack_b);
 	exit(EXIT_SUCCESS);
 }

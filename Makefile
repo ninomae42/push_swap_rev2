@@ -6,6 +6,9 @@ SRCS := main.c \
 		ft_atoi.c \
 		ft_atoi_int.c \
 		args_utils.c \
+		utils.c \
+		data_stack.c \
+		data_stack2.c \
 
 OBJS := $(SRCS:.c=.o)
 SRCS := $(addprefix $(SRCS_DIR)/, $(SRCS))
@@ -15,7 +18,7 @@ INC_DIR := ./includes
 INCLUDES := $(addprefix -I, $(INC_DIR))
 
 CC := cc
-CFLAGS := -Wall -Wextra -Werror -g
+CFLAGS := -Wall -Wextra -Werror -fsanitize=address -g -fno-omit-frame-pointer
 RM := rm -rf
 
 .PHONY: all
@@ -26,7 +29,7 @@ $(OBJS_DIR)/%o: $(SRCS_DIR)/%c
 	$(CC) $(CFLAGS) $(INCLUDES) -o $@ -c $<
 
 $(NAME): $(OBJS)
-	$(CC) $(OBJS) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 .PHONY: clean
 clean:
