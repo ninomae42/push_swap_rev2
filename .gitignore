@@ -1,5 +1,5 @@
 # executable files
-a.out
+*/*a.out
 
 # object files
 */*.o
@@ -12,3 +12,6 @@ libft.a
 .vscode
 compile_commands.json
 .cache
+
+# My local playground directory
+lab/
