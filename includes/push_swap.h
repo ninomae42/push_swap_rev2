@@ -5,8 +5,12 @@
 # include <stdbool.h>
 # include <stdio.h>
 # include <stdlib.h>
+# include <unistd.h>
+
+# define ERROR_MSG "Error\n"
 
 // ----- Types -----
+
 // data stack
 typedef struct s_data_node
 {
@@ -46,6 +50,19 @@ typedef struct s_operations
 
 typedef t_operations		t_ops;
 
+// controller
+typedef struct s_controller
+{
+	int			argc;
+	char		**argv;
+	t_dstack	*stack_a;
+	t_dstack	*stack_b;
+	t_ops		*ops;
+	int			*sorted_array;
+}	t_controller;
+
+typedef t_controller		t_cont;
+
 // ----- Functions -----
 
 // data_stack.c
@@ -72,6 +89,9 @@ bool		is_argument_valid(const char *s);
 
 // utils.c
 void		*malloc_or_exit(size_t size);
+
+// ft_putstr_fd.c
+void		ft_putstr_fd(const char *s, int fd);
 
 // ops_stack.c
 t_opsnode	*opsnode_new(t_eops operation);
@@ -103,5 +123,20 @@ void		reverse_rotate_a(t_dstack *stack_a, t_ops *ops);
 void		reverse_rotate_b(t_dstack *stack_b, t_ops *ops);
 void		reverse_rotate_same(
 				t_dstack *stack_a, t_dstack *stack_b, t_ops *ops);
+
+// initializer.c
+t_cont		*init_push_swap(int argc, char **argv);
+void		receive_cmdline_argument(t_cont *controller);
+void		sort_and_check_duplication(t_cont *controller);
+void		compress(t_cont *controller);
+
+// array.c
+int			*stack_to_array(t_dstack *stack);
+void		print_array(int *array, size_t size);
+bool		is_duplicate_exist(int *array, size_t size);
+size_t		find_index_of_key(int *array, size_t size, int key);
+
+// merge_sort.c
+void		merge_sort(int *a, int *buf, size_t left, size_t right);
 
 #endif

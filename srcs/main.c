@@ -2,86 +2,26 @@
 
 int	main(int argc, char **argv)
 {
-	size_t		i;
-	int			ret;
-	int			err;
-	t_ops		*ops;
-	t_dstack	*stack_a;
-	t_dstack	*stack_b;
+	t_cont		*controller;
 
 	if (argc < 2)
 		exit(EXIT_SUCCESS);
-	i = 1;
-	ops = ops_init();
-	stack_a = dstack_init();
-	/* stack_b = dstack_init(); */
-	while (argv[i] != NULL)
-	{
-		if (!is_argument_valid(argv[i]))
-		{
-			printf("error occured, with value: %s\n", argv[i]);
-			exit(EXIT_FAILURE);
-		}
-		ret = ft_atoi_int(argv[i]);
-		err = errno;
-		if (err != 0)
-		{
-			printf("error occured, with [code: %d, value: %s]\n", err, argv[i]);
-			exit(EXIT_FAILURE);
-		}
-		dstack_push_back(stack_a, ret);
-		i++;
-	}
-	stack_b = dstack_copy(stack_a);
-	dstack_print(stack_a);
-	dstack_print(stack_b);
+	controller = init_push_swap(argc, argv);
+	receive_cmdline_argument(controller);
+	sort_and_check_duplication(controller);
+
+	dstack_print(controller->stack_a);
+	dstack_print(controller->stack_b);
 	puts("");
 
-	reverse_rotate_a(stack_a, ops);
-	dstack_print(stack_a);
-	dstack_print(stack_b);
-	puts("revRotateA");
+	print_array(controller->sorted_array, controller->stack_a->size);
+	puts("");
 
-	reverse_rotate_a(stack_a, ops);
-	dstack_print(stack_a);
-	dstack_print(stack_b);
-	puts("revRotateA");
+	compress(controller);
+	dstack_print(controller->stack_a);
+	dstack_print(controller->stack_b);
+	puts("");
 
-	reverse_rotate_a(stack_a, ops);
-	dstack_print(stack_a);
-	dstack_print(stack_b);
-	puts("revRotateA");
-
-	reverse_rotate_b(stack_b, ops);
-	dstack_print(stack_a);
-	dstack_print(stack_b);
-	puts("revRotateB");
-
-	reverse_rotate_b(stack_b, ops);
-	dstack_print(stack_a);
-	dstack_print(stack_b);
-	puts("revRotateB");
-
-	reverse_rotate_b(stack_b, ops);
-	dstack_print(stack_a);
-	dstack_print(stack_b);
-	puts("revRotateB");
-
-	reverse_rotate_same(stack_a, stack_b, ops);
-	dstack_print(stack_a);
-	dstack_print(stack_b);
-	puts("revRotateSame");
-
-	reverse_rotate_same(stack_a, stack_b, ops);
-	dstack_print(stack_a);
-	dstack_print(stack_b);
-	puts("revRotateSame");
-
-	reverse_rotate_same(stack_a, stack_b, ops);
-	dstack_print(stack_a);
-	dstack_print(stack_b);
-	puts("revRotateSame");
-
-	ops_print(ops);
+	ops_print(controller->ops);
 	exit(EXIT_SUCCESS);
 }

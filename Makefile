@@ -5,6 +5,7 @@ OBJS_DIR := ./obj
 SRCS := main.c \
 		ft_atoi.c \
 		ft_atoi_int.c \
+		ft_putstr_fd.c \
 		args_utils.c \
 		utils.c \
 		data_stack.c \
@@ -15,6 +16,9 @@ SRCS := main.c \
 		ops_push.c \
 		ops_rotate.c \
 		ops_rev_rotate.c \
+		array.c \
+		initializer.c \
+		merge_sort.c \
 
 OBJS := $(SRCS:.c=.o)
 SRCS := $(addprefix $(SRCS_DIR)/, $(SRCS))
