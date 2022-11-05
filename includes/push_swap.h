@@ -5,6 +5,9 @@
 # include <stdbool.h>
 # include <stdio.h>
 # include <stdlib.h>
+# include <unistd.h>
+
+# define ERROR_MSG "Error\n"
 
 // ----- Types -----
 // data stack
@@ -72,6 +75,9 @@ bool		is_argument_valid(const char *s);
 
 // utils.c
 void		*malloc_or_exit(size_t size);
+
+// ft_putstr_fd.c
+void		ft_putstr_fd(const char *s, int fd);
 
 // ops_stack.c
 t_opsnode	*opsnode_new(t_eops operation);

@@ -5,6 +5,7 @@ OBJS_DIR := ./obj
 SRCS := main.c \
 		ft_atoi.c \
 		ft_atoi_int.c \
+		ft_putstr_fd.c \
 		args_utils.c \
 		utils.c \
 		data_stack.c \
