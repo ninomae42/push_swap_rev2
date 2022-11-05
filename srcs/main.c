@@ -14,6 +14,7 @@ int	main(int argc, char **argv)
 	i = 1;
 	ops = ops_init();
 	stack_a = dstack_init();
+	stack_b = dstack_init();
 	while (argv[i] != NULL)
 	{
 		if (!is_argument_valid(argv[i]))
@@ -31,16 +32,41 @@ int	main(int argc, char **argv)
 		dstack_push_back(stack_a, ret);
 		i++;
 	}
-	stack_b = dstack_copy(stack_a);
 	dstack_print(stack_a);
 	dstack_print(stack_b);
-	swap_a(stack_a, ops);
-	swap_b(stack_b, ops);
+	puts("");
+
+	push_a(stack_a, stack_b, ops);
+	push_b(stack_a, stack_b, ops);
 	dstack_print(stack_a);
 	dstack_print(stack_b);
+	puts("");
+
+	push_b(stack_a, stack_b, ops);
+	dstack_print(stack_a);
+	dstack_print(stack_b);
+	puts("");
+
 	swap_same(stack_a, stack_b, ops);
 	dstack_print(stack_a);
 	dstack_print(stack_b);
+	puts("");
+
+	push_a(stack_a, stack_b, ops);
+	dstack_print(stack_a);
+	dstack_print(stack_b);
+	puts("");
+
+	push_a(stack_a, stack_b, ops);
+	dstack_print(stack_a);
+	dstack_print(stack_b);
+	puts("");
+
+	swap_a(stack_a, ops);
+	dstack_print(stack_a);
+	dstack_print(stack_b);
+	puts("");
+
 	ops_print(ops);
 	exit(EXIT_SUCCESS);
 }

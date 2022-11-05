@@ -85,8 +85,12 @@ void		ops_erace(t_ops *ops, t_opsnode *node);
 void		ops_clear(t_ops *ops);
 
 // ops_swap.c
-void	swap_a(t_dstack *stack_a, t_ops *ops);
-void	swap_b(t_dstack *stack_b, t_ops *ops);
-void	swap_same(t_dstack *stack_a, t_dstack *stack_b, t_ops *ops);
+void		swap_a(t_dstack *stack_a, t_ops *ops);
+void		swap_b(t_dstack *stack_b, t_ops *ops);
+void		swap_same(t_dstack *stack_a, t_dstack *stack_b, t_ops *ops);
+
+// ops_push.c
+void		push_a(t_dstack *stack_a, t_dstack *stack_b, t_ops *ops);
+void		push_b(t_dstack *stack_a, t_dstack *stack_b, t_ops *ops);
 
 #endif
