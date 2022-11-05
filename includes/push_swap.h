@@ -93,4 +93,9 @@ void		swap_same(t_dstack *stack_a, t_dstack *stack_b, t_ops *ops);
 void		push_a(t_dstack *stack_a, t_dstack *stack_b, t_ops *ops);
 void		push_b(t_dstack *stack_a, t_dstack *stack_b, t_ops *ops);
 
+// ops_rotate.c
+void		rotate_a(t_dstack *stack_a, t_ops *ops);
+void		rotate_b(t_dstack *stack_b, t_ops *ops);
+void		rotate_same(t_dstack *stack_a, t_dstack *stack_b, t_ops *ops);
+
 #endif

@@ -14,7 +14,7 @@ int	main(int argc, char **argv)
 	i = 1;
 	ops = ops_init();
 	stack_a = dstack_init();
-	stack_b = dstack_init();
+	/* stack_b = dstack_init(); */
 	while (argv[i] != NULL)
 	{
 		if (!is_argument_valid(argv[i]))
@@ -32,40 +32,55 @@ int	main(int argc, char **argv)
 		dstack_push_back(stack_a, ret);
 		i++;
 	}
+	stack_b = dstack_copy(stack_a);
 	dstack_print(stack_a);
 	dstack_print(stack_b);
 	puts("");
 
-	push_a(stack_a, stack_b, ops);
-	push_b(stack_a, stack_b, ops);
+	rotate_a(stack_a, ops);
 	dstack_print(stack_a);
 	dstack_print(stack_b);
-	puts("");
+	puts("rotateA");
 
-	push_b(stack_a, stack_b, ops);
+	rotate_a(stack_a, ops);
 	dstack_print(stack_a);
 	dstack_print(stack_b);
-	puts("");
+	puts("rotateA");
 
-	swap_same(stack_a, stack_b, ops);
+	rotate_a(stack_a, ops);
 	dstack_print(stack_a);
 	dstack_print(stack_b);
-	puts("");
+	puts("rotateA");
 
-	push_a(stack_a, stack_b, ops);
+	rotate_b(stack_b, ops);
 	dstack_print(stack_a);
 	dstack_print(stack_b);
-	puts("");
+	puts("rotateB");
 
-	push_a(stack_a, stack_b, ops);
+	rotate_b(stack_b, ops);
 	dstack_print(stack_a);
 	dstack_print(stack_b);
-	puts("");
+	puts("rotateB");
 
-	swap_a(stack_a, ops);
+	rotate_b(stack_b, ops);
 	dstack_print(stack_a);
 	dstack_print(stack_b);
-	puts("");
+	puts("rotateB");
+
+	rotate_same(stack_a, stack_b, ops);
+	dstack_print(stack_a);
+	dstack_print(stack_b);
+	puts("rotateSame");
+
+	rotate_same(stack_a, stack_b, ops);
+	dstack_print(stack_a);
+	dstack_print(stack_b);
+	puts("rotateSame");
+
+	rotate_same(stack_a, stack_b, ops);
+	dstack_print(stack_a);
+	dstack_print(stack_b);
+	puts("rotateSame");
 
 	ops_print(ops);
 	exit(EXIT_SUCCESS);
