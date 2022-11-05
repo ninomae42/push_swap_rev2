@@ -34,11 +34,6 @@ void	receive_cmdline_argument(t_cont *controller)
 	argv = controller->argv;
 	while (argv[i] != NULL)
 	{
-		if (!is_argument_valid(argv[i]))
-		{
-			ft_putstr_fd(ERROR_MSG, STDERR_FILENO);
-			exit(EXIT_FAILURE);
-		}
 		errno = 0;
 		ret = ft_atoi_int(argv[i]);
 		if (errno != 0)
