@@ -18,7 +18,8 @@ static void	reverse_rotate(t_dstack *stack)
 	first_node->prev = last_node;
 }
 
-// Shift down all elements of stack A by 1. The last element becomes the first one.
+// Shift down all elements of stack A by 1.
+// The last element becomes the first one.
 void	reverse_rotate_a(t_dstack *stack_a, t_ops *ops)
 {
 	if (stack_a == NULL || ops == NULL)
@@ -29,7 +30,8 @@ void	reverse_rotate_a(t_dstack *stack_a, t_ops *ops)
 	ops_push_back(ops, rra);
 }
 
-// Shift down all elements of stack B by 1. The last element becomes the first one.
+// Shift down all elements of stack B by 1.
+// The last element becomes the first one.
 void	reverse_rotate_b(t_dstack *stack_b, t_ops *ops)
 {
 	if (stack_b == NULL || ops == NULL)

@@ -15,7 +15,7 @@ typedef struct s_data_node
 	struct s_data_node	*prev;
 }	t_data_node;
 
-typedef t_data_node		t_dnode;
+typedef t_data_node			t_dnode;
 
 typedef struct s_data_stack
 {
@@ -23,11 +23,11 @@ typedef struct s_data_stack
 	size_t	size;
 }	t_data_stack;
 
-typedef t_data_stack	t_dstack;
+typedef t_data_stack		t_dstack;
 
 // operation buffer
 enum e_operations {none, sa, sb, ss, pa, pb, ra, rb, rr, rra, rrb, rrr};
-typedef enum e_operations	e_ops;
+typedef enum e_operations	t_eops;
 
 typedef struct s_operation_node
 {
@@ -44,7 +44,7 @@ typedef struct s_operations
 	size_t		size;
 }	t_operations;
 
-typedef t_operations	t_ops;
+typedef t_operations		t_ops;
 
 // ----- Functions -----
 
@@ -74,10 +74,10 @@ bool		is_argument_valid(const char *s);
 void		*malloc_or_exit(size_t size);
 
 // ops_stack.c
-t_opsnode	*opsnode_new(e_ops operation);
+t_opsnode	*opsnode_new(t_eops operation);
 t_ops		*ops_init(void);
-void		ops_push_back(t_ops *ops, e_ops operation);
-char		*enum_ops_to_string(e_ops operation);
+void		ops_push_back(t_ops *ops, t_eops operation);
+char		*enum_ops_to_string(t_eops operation);
 void		ops_print(t_ops *ops);
 
 // ops_stack2.c
@@ -101,6 +101,7 @@ void		rotate_same(t_dstack *stack_a, t_dstack *stack_b, t_ops *ops);
 // ops_rev_rotate.c
 void		reverse_rotate_a(t_dstack *stack_a, t_ops *ops);
 void		reverse_rotate_b(t_dstack *stack_b, t_ops *ops);
-void		reverse_rotate_same(t_dstack *stack_a, t_dstack *stack_b, t_ops *ops);
+void		reverse_rotate_same(
+				t_dstack *stack_a, t_dstack *stack_b, t_ops *ops);
 
 #endif

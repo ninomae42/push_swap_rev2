@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-t_opsnode	*opsnode_new(e_ops operation)
+t_opsnode	*opsnode_new(t_eops operation)
 {
 	t_opsnode	*new;
 
@@ -23,7 +23,7 @@ t_ops	*ops_init(void)
 	return (ops);
 }
 
-void	ops_push_back(t_ops *ops, e_ops operation)
+void	ops_push_back(t_ops *ops, t_eops operation)
 {
 	t_opsnode	*nil;
 	t_opsnode	*new;
@@ -67,29 +67,29 @@ void	ops_print(t_ops *ops)
 	puts("");
 }
 
-char	*enum_ops_to_string(e_ops operation)
+char	*enum_ops_to_string(t_eops operation)
 {
 	if (operation == sa)
-		return "sa";
+		return ("sa");
 	if (operation == sb)
-		return "sb";
+		return ("sb");
 	if (operation == ss)
-		return "ss";
+		return ("ss");
 	if (operation == pa)
-		return "pa";
+		return ("pa");
 	if (operation == pb)
-		return "pb";
+		return ("pb");
 	if (operation == ra)
-		return "ra";
+		return ("ra");
 	if (operation == rb)
-		return "rb";
+		return ("rb");
 	if (operation == rr)
-		return "rr";
+		return ("rr");
 	if (operation == rra)
-		return "rra";
+		return ("rra");
 	if (operation == rrb)
-		return "rrb";
+		return ("rrb");
 	if (operation == rrr)
-		return "rrr";
-	return "";
+		return ("rrr");
+	return ("");
 }

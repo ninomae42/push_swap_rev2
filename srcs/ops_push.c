@@ -5,7 +5,7 @@
 void	push_a(t_dstack *stack_a, t_dstack *stack_b, t_ops *ops)
 {
 	int	tmp;
-	
+
 	if (stack_a == NULL || stack_b == NULL || ops == NULL)
 		return ;
 	if (stack_b->size == 0)
@@ -21,7 +21,7 @@ void	push_a(t_dstack *stack_a, t_dstack *stack_b, t_ops *ops)
 void	push_b(t_dstack *stack_a, t_dstack *stack_b, t_ops *ops)
 {
 	int	tmp;
-	
+
 	if (stack_a == NULL || stack_b == NULL || ops == NULL)
 		return ;
 	if (stack_a->size == 0)

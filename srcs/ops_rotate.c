@@ -18,7 +18,8 @@ static void	rotate(t_dstack *stack)
 	last_node->next = first_node;
 }
 
-// Shift up all elements of stack A by 1. The first element becomes the last one.
+// Shift up all elements of stack A by 1. 
+// The first element becomes the last one.
 void	rotate_a(t_dstack *stack_a, t_ops *ops)
 {
 	if (stack_a == NULL || ops == NULL)
@@ -29,7 +30,8 @@ void	rotate_a(t_dstack *stack_a, t_ops *ops)
 	ops_push_back(ops, ra);
 }
 
-// Shift up all elements of stack B by 1. The first element becomes the last one.
+// Shift up all elements of stack B by 1. 
+// The first element becomes the last one.
 void	rotate_b(t_dstack *stack_b, t_ops *ops)
 {
 	if (stack_b == NULL || ops == NULL)
