@@ -5,12 +5,16 @@ int	main(int argc, char **argv)
 	size_t		i;
 	int			ret;
 	int			err;
+	t_ops		*ops;
 	t_dstack	*stack_a;
+	t_dstack	*stack_b;
 
 	if (argc < 2)
 		exit(EXIT_SUCCESS);
 	i = 1;
+	ops = ops_init();
 	stack_a = dstack_init();
+	/* stack_b = dstack_init(); */
 	while (argv[i] != NULL)
 	{
 		if (!is_argument_valid(argv[i]))
@@ -28,35 +32,56 @@ int	main(int argc, char **argv)
 		dstack_push_back(stack_a, ret);
 		i++;
 	}
-	t_dstack *stack_b =  dstack_copy(stack_a);
-	dstack_print(stack_a);
-	
-	dstack_pop_front(stack_a);
-	dstack_print(stack_a);
-
-	dstack_pop_front(stack_a);
-	dstack_print(stack_a);
-
-	dstack_pop_front(stack_a);
-	dstack_print(stack_a);
-
-	dstack_pop_front(stack_a);
-	dstack_print(stack_a);
-
-	dstack_pop_front(stack_a);
-	dstack_print(stack_a);
-
-	dstack_pop_front(stack_a);
-	dstack_print(stack_a);
-
-	dstack_pop_front(stack_a);
-	dstack_print(stack_a);
-
-	dstack_clear(stack_a);
+	stack_b = dstack_copy(stack_a);
 	dstack_print(stack_a);
 	dstack_print(stack_b);
-	dstack_clear(stack_b);
+	puts("");
+
+	reverse_rotate_a(stack_a, ops);
+	dstack_print(stack_a);
 	dstack_print(stack_b);
-	dstack_clear(stack_b);
+	puts("revRotateA");
+
+	reverse_rotate_a(stack_a, ops);
+	dstack_print(stack_a);
+	dstack_print(stack_b);
+	puts("revRotateA");
+
+	reverse_rotate_a(stack_a, ops);
+	dstack_print(stack_a);
+	dstack_print(stack_b);
+	puts("revRotateA");
+
+	reverse_rotate_b(stack_b, ops);
+	dstack_print(stack_a);
+	dstack_print(stack_b);
+	puts("revRotateB");
+
+	reverse_rotate_b(stack_b, ops);
+	dstack_print(stack_a);
+	dstack_print(stack_b);
+	puts("revRotateB");
+
+	reverse_rotate_b(stack_b, ops);
+	dstack_print(stack_a);
+	dstack_print(stack_b);
+	puts("revRotateB");
+
+	reverse_rotate_same(stack_a, stack_b, ops);
+	dstack_print(stack_a);
+	dstack_print(stack_b);
+	puts("revRotateSame");
+
+	reverse_rotate_same(stack_a, stack_b, ops);
+	dstack_print(stack_a);
+	dstack_print(stack_b);
+	puts("revRotateSame");
+
+	reverse_rotate_same(stack_a, stack_b, ops);
+	dstack_print(stack_a);
+	dstack_print(stack_b);
+	puts("revRotateSame");
+
+	ops_print(ops);
 	exit(EXIT_SUCCESS);
 }
