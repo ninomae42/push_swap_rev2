@@ -11,6 +11,7 @@ SRCS := main.c \
 		data_stack2.c \
 		ops_stack.c \
 		ops_stack2.c \
+		ops_swap.c \
 
 OBJS := $(SRCS:.c=.o)
 SRCS := $(addprefix $(SRCS_DIR)/, $(SRCS))

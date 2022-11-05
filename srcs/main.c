@@ -6,11 +6,14 @@ int	main(int argc, char **argv)
 	int			ret;
 	int			err;
 	t_ops		*ops;
+	t_dstack	*stack_a;
+	t_dstack	*stack_b;
 
 	if (argc < 2)
 		exit(EXIT_SUCCESS);
 	i = 1;
 	ops = ops_init();
+	stack_a = dstack_init();
 	while (argv[i] != NULL)
 	{
 		if (!is_argument_valid(argv[i]))
@@ -25,21 +28,19 @@ int	main(int argc, char **argv)
 			printf("error occured, with [code: %d, value: %s]\n", err, argv[i]);
 			exit(EXIT_FAILURE);
 		}
-		ops_push_back(ops, ret);
+		dstack_push_back(stack_a, ret);
 		i++;
 	}
-	ops_print(ops);
-	t_opsnode	*nil;
-	nil = ops->nil;
-	ops_erace(ops, nil->next);
-	ops_print(ops);
-	ops_erace(ops, nil->next);
-	ops_print(ops);
-	ops_erace(ops, nil->prev);
-	ops_print(ops);
-	ops_erace(ops, nil->prev);
-	ops_print(ops);
-	ops_clear(ops);
+	stack_b = dstack_copy(stack_a);
+	dstack_print(stack_a);
+	dstack_print(stack_b);
+	swap_a(stack_a, ops);
+	swap_b(stack_b, ops);
+	dstack_print(stack_a);
+	dstack_print(stack_b);
+	swap_same(stack_a, stack_b, ops);
+	dstack_print(stack_a);
+	dstack_print(stack_b);
 	ops_print(ops);
 	exit(EXIT_SUCCESS);
 }
