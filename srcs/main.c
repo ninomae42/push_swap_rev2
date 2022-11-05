@@ -37,50 +37,50 @@ int	main(int argc, char **argv)
 	dstack_print(stack_b);
 	puts("");
 
-	rotate_a(stack_a, ops);
+	reverse_rotate_a(stack_a, ops);
 	dstack_print(stack_a);
 	dstack_print(stack_b);
-	puts("rotateA");
+	puts("revRotateA");
 
-	rotate_a(stack_a, ops);
+	reverse_rotate_a(stack_a, ops);
 	dstack_print(stack_a);
 	dstack_print(stack_b);
-	puts("rotateA");
+	puts("revRotateA");
 
-	rotate_a(stack_a, ops);
+	reverse_rotate_a(stack_a, ops);
 	dstack_print(stack_a);
 	dstack_print(stack_b);
-	puts("rotateA");
+	puts("revRotateA");
 
-	rotate_b(stack_b, ops);
+	reverse_rotate_b(stack_b, ops);
 	dstack_print(stack_a);
 	dstack_print(stack_b);
-	puts("rotateB");
+	puts("revRotateB");
 
-	rotate_b(stack_b, ops);
+	reverse_rotate_b(stack_b, ops);
 	dstack_print(stack_a);
 	dstack_print(stack_b);
-	puts("rotateB");
+	puts("revRotateB");
 
-	rotate_b(stack_b, ops);
+	reverse_rotate_b(stack_b, ops);
 	dstack_print(stack_a);
 	dstack_print(stack_b);
-	puts("rotateB");
+	puts("revRotateB");
 
-	rotate_same(stack_a, stack_b, ops);
+	reverse_rotate_same(stack_a, stack_b, ops);
 	dstack_print(stack_a);
 	dstack_print(stack_b);
-	puts("rotateSame");
+	puts("revRotateSame");
 
-	rotate_same(stack_a, stack_b, ops);
+	reverse_rotate_same(stack_a, stack_b, ops);
 	dstack_print(stack_a);
 	dstack_print(stack_b);
-	puts("rotateSame");
+	puts("revRotateSame");
 
-	rotate_same(stack_a, stack_b, ops);
+	reverse_rotate_same(stack_a, stack_b, ops);
 	dstack_print(stack_a);
 	dstack_print(stack_b);
-	puts("rotateSame");
+	puts("revRotateSame");
 
 	ops_print(ops);
 	exit(EXIT_SUCCESS);

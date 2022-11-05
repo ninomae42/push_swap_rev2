@@ -98,4 +98,9 @@ void		rotate_a(t_dstack *stack_a, t_ops *ops);
 void		rotate_b(t_dstack *stack_b, t_ops *ops);
 void		rotate_same(t_dstack *stack_a, t_dstack *stack_b, t_ops *ops);
 
+// ops_rev_rotate.c
+void		reverse_rotate_a(t_dstack *stack_a, t_ops *ops);
+void		reverse_rotate_b(t_dstack *stack_b, t_ops *ops);
+void		reverse_rotate_same(t_dstack *stack_a, t_dstack *stack_b, t_ops *ops);
+
 #endif

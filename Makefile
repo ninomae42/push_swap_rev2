@@ -14,6 +14,7 @@ SRCS := main.c \
 		ops_swap.c \
 		ops_push.c \
 		ops_rotate.c \
+		ops_rev_rotate.c \
 
 OBJS := $(SRCS:.c=.o)
 SRCS := $(addprefix $(SRCS_DIR)/, $(SRCS))
