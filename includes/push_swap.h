@@ -25,6 +25,27 @@ typedef struct s_data_stack
 
 typedef t_data_stack	t_dstack;
 
+// operation buffer
+enum e_operations {none, sa, sb, ss, pa, pb, ra, rb, rr, rra, rrb, rrr};
+typedef enum e_operations	e_ops;
+
+typedef struct s_operation_node
+{
+	enum e_operations		operation;
+	struct s_operation_node	*next;
+	struct s_operation_node	*prev;
+}	t_operation_node;
+
+typedef t_operation_node	t_opsnode;
+
+typedef struct s_operations
+{
+	t_opsnode	*nil;
+	size_t		size;
+}	t_operations;
+
+typedef t_operations	t_ops;
+
 // ----- Functions -----
 
 // data_stack.c
@@ -51,5 +72,16 @@ bool		is_argument_valid(const char *s);
 
 // utils.c
 void		*malloc_or_exit(size_t size);
+
+// ops_stack.c
+t_opsnode	*opsnode_new(e_ops operation);
+t_ops		*ops_init(void);
+void		ops_push_back(t_ops *ops, e_ops operation);
+char		*enum_ops_to_string(e_ops operation);
+void		ops_print(t_ops *ops);
+
+// ops_stack2.c
+void		ops_erace(t_ops *ops, t_opsnode *node);
+void		ops_clear(t_ops *ops);
 
 #endif
