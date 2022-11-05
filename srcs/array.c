@@ -50,3 +50,17 @@ bool	is_duplicate_exist(int *array, size_t size)
 	}
 	return (false);
 }
+
+size_t	find_index_of_key(int *array, size_t size, int key)
+{
+	size_t	index;
+
+	index = 0;
+	while (index < size)
+	{
+		if (array[index] == key)
+			break ;
+		index++;
+	}
+	return (index);
+}

@@ -52,3 +52,21 @@ void	sort_and_check_duplication(t_cont *controller)
 	free(buf);
 	controller->sorted_array = array;
 }
+
+void	compress(t_cont *controller)
+{
+	int		*array;
+	t_dnode	*nil;
+	t_dnode	*current;
+	size_t	size;
+
+	array = controller->sorted_array;
+	nil = controller->stack_a->nil;
+	current = nil->next;
+	size = controller->stack_a->size;
+	while (current != NULL && current != nil)
+	{
+		current->num = find_index_of_key(array, size, current->num);
+		current = current->next;
+	}
+}

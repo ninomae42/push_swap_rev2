@@ -17,6 +17,11 @@ int	main(int argc, char **argv)
 	print_array(controller->sorted_array, controller->stack_a->size);
 	puts("");
 
+	compress(controller);
+	dstack_print(controller->stack_a);
+	dstack_print(controller->stack_b);
+	puts("");
+
 	ops_print(controller->ops);
 	exit(EXIT_SUCCESS);
 }

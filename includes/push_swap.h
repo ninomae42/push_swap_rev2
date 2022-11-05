@@ -128,11 +128,13 @@ void		reverse_rotate_same(
 t_cont		*init_push_swap(int argc, char **argv);
 void		receive_cmdline_argument(t_cont *controller);
 void		sort_and_check_duplication(t_cont *controller);
+void		compress(t_cont *controller);
 
 // array.c
 int			*stack_to_array(t_dstack *stack);
 void		print_array(int *array, size_t size);
 bool		is_duplicate_exist(int *array, size_t size);
+size_t		find_index_of_key(int *array, size_t size, int key);
 
 // merge_sort.c
 void		merge_sort(int *a, int *buf, size_t left, size_t right);
