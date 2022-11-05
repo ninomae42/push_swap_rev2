@@ -5,12 +5,12 @@ int	main(int argc, char **argv)
 	size_t		i;
 	int			ret;
 	int			err;
-	t_dstack	*stack_a;
+	t_ops		*ops;
 
 	if (argc < 2)
 		exit(EXIT_SUCCESS);
 	i = 1;
-	stack_a = dstack_init();
+	ops = ops_init();
 	while (argv[i] != NULL)
 	{
 		if (!is_argument_valid(argv[i]))
@@ -25,38 +25,21 @@ int	main(int argc, char **argv)
 			printf("error occured, with [code: %d, value: %s]\n", err, argv[i]);
 			exit(EXIT_FAILURE);
 		}
-		dstack_push_back(stack_a, ret);
+		ops_push_back(ops, ret);
 		i++;
 	}
-	t_dstack *stack_b =  dstack_copy(stack_a);
-	dstack_print(stack_a);
-	
-	dstack_pop_front(stack_a);
-	dstack_print(stack_a);
-
-	dstack_pop_front(stack_a);
-	dstack_print(stack_a);
-
-	dstack_pop_front(stack_a);
-	dstack_print(stack_a);
-
-	dstack_pop_front(stack_a);
-	dstack_print(stack_a);
-
-	dstack_pop_front(stack_a);
-	dstack_print(stack_a);
-
-	dstack_pop_front(stack_a);
-	dstack_print(stack_a);
-
-	dstack_pop_front(stack_a);
-	dstack_print(stack_a);
-
-	dstack_clear(stack_a);
-	dstack_print(stack_a);
-	dstack_print(stack_b);
-	dstack_clear(stack_b);
-	dstack_print(stack_b);
-	dstack_clear(stack_b);
+	ops_print(ops);
+	t_opsnode	*nil;
+	nil = ops->nil;
+	ops_erace(ops, nil->next);
+	ops_print(ops);
+	ops_erace(ops, nil->next);
+	ops_print(ops);
+	ops_erace(ops, nil->prev);
+	ops_print(ops);
+	ops_erace(ops, nil->prev);
+	ops_print(ops);
+	ops_clear(ops);
+	ops_print(ops);
 	exit(EXIT_SUCCESS);
 }
