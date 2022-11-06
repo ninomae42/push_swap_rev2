@@ -139,4 +139,11 @@ size_t		find_index_of_key(int *array, size_t size, int key);
 // merge_sort.c
 void		merge_sort(int *a, int *buf, size_t left, size_t right);
 
+// sort_utils.c
+bool		is_stack_sorted(t_dstack *stack);
+bool		is_lte_key_exist(t_dstack *stack, int key);
+
+// sort_lte5.c
+void		sort_lte_five(t_cont *controller);
+
 #endif

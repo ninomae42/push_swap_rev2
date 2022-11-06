@@ -10,18 +10,25 @@ int	main(int argc, char **argv)
 	receive_cmdline_argument(controller);
 	sort_and_check_duplication(controller);
 
-	dstack_print(controller->stack_a);
-	dstack_print(controller->stack_b);
-	puts("");
+	/* dstack_print(controller->stack_a); */
+	/* dstack_print(controller->stack_b); */
+	/* puts(""); */
 
-	print_array(controller->sorted_array, controller->stack_a->size);
-	puts("");
+	/* print_array(controller->sorted_array, controller->stack_a->size); */
+	/* puts(""); */
 
 	compress(controller);
 	dstack_print(controller->stack_a);
-	dstack_print(controller->stack_b);
+	/* dstack_print(controller->stack_b); */
+	puts("");
+
+	/* sort_lte_three(controller); */
+	sort_lte_five(controller);
+	dstack_print(controller->stack_a);
 	puts("");
 
 	ops_print(controller->ops);
+	if (!is_stack_sorted(controller->stack_a) || 12 < controller->ops->size)
+		exit(EXIT_FAILURE);
 	exit(EXIT_SUCCESS);
 }

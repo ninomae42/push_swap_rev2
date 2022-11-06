@@ -19,6 +19,8 @@ SRCS := main.c \
 		array.c \
 		initializer.c \
 		merge_sort.c \
+		sort_utils.c \
+		sort_lte5.c \
 
 OBJS := $(SRCS:.c=.o)
 SRCS := $(addprefix $(SRCS_DIR)/, $(SRCS))
