@@ -17,3 +17,4 @@ compile_commands.json
 # My local playground directory
 lab/
 test/
+push_swap_tester/
