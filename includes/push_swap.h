@@ -6,7 +6,7 @@
 /*   By: tashimiz <tashimiz@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 16:44:03 by tashimiz          #+#    #+#             */
-/*   Updated: 2022/11/06 16:44:05 by tashimiz         ###   ########.fr       */
+/*   Updated: 2022/11/07 18:33:51 by tashimiz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,6 +154,16 @@ void		merge_sort(int *a, int *buf, size_t left, size_t right);
 // sort_utils.c
 bool		is_stack_sorted(t_dstack *stack);
 bool		is_lte_key_exist(t_dstack *stack, int key);
+bool		is_lt_key_exist(t_dstack *stack, int key);
+bool		is_gt_key_exist(t_dstack *stack, int key);
+bool		is_gte_key_exist(t_dstack *stack, int key);
+
+// sort_utils2.c
+bool		is_gte_key_and_lte_key_exist(
+				t_dstack *stack, int k_min, int k_max);
+int			get_dstack_max(t_dstack *stack);
+size_t		get_steps_to_key_from_top(t_dstack *stack, int key);
+size_t		get_steps_to_key_from_bottom(t_dstack *stack, int key);
 
 // sort_lte5.c
 void		sort_lte_five(t_cont *controller);

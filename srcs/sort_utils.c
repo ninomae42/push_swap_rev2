@@ -6,7 +6,7 @@
 /*   By: tashimiz <tashimiz@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 16:46:51 by tashimiz          #+#    #+#             */
-/*   Updated: 2022/11/06 16:46:51 by tashimiz         ###   ########.fr       */
+/*   Updated: 2022/11/07 18:30:32 by tashimiz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,54 @@ bool	is_lte_key_exist(t_dstack *stack, int key)
 	while (current != NULL && current != nil)
 	{
 		if (current->num <= key)
+			return (true);
+		current = current->next;
+	}
+	return (false);
+}
+
+bool	is_lt_key_exist(t_dstack *stack, int key)
+{
+	t_dnode	*nil;
+	t_dnode	*current;
+
+	nil = stack->nil;
+	current = nil->next;
+	while (current != NULL && current != nil)
+	{
+		if (current->num < key)
+			return (true);
+		current = current->next;
+	}
+	return (false);
+}
+
+bool	is_gt_key_exist(t_dstack *stack, int key)
+{
+	t_dnode	*nil;
+	t_dnode	*current;
+
+	nil = stack->nil;
+	current = nil->next;
+	while (current != NULL && current != nil)
+	{
+		if (key < current->num)
+			return (true);
+		current = current->next;
+	}
+	return (false);
+}
+
+bool	is_gte_key_exist(t_dstack *stack, int key)
+{
+	t_dnode	*nil;
+	t_dnode	*current;
+
+	nil = stack->nil;
+	current = nil->next;
+	while (current != NULL && current != nil)
+	{
+		if (key <= current->num)
 			return (true);
 		current = current->next;
 	}
