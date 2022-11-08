@@ -6,7 +6,7 @@
 /*   By: tashimiz <tashimiz@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 16:44:03 by tashimiz          #+#    #+#             */
-/*   Updated: 2022/11/08 17:26:39 by tashimiz         ###   ########.fr       */
+/*   Updated: 2022/11/08 17:53:25 by tashimiz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,5 +158,9 @@ bool		is_lte_key_exist(t_dstack *stack, size_t key);
 
 // sort_lte5.c
 void		sort_lte_five(t_cont *controller);
+
+// sort_helper.c
+size_t		get_max(t_dstack *stack);
+size_t		get_min(t_dstack *stack);
 
 #endif
