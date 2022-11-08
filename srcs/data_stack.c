@@ -6,13 +6,13 @@
 /*   By: tashimiz <tashimiz@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 16:45:10 by tashimiz          #+#    #+#             */
-/*   Updated: 2022/11/06 16:45:12 by tashimiz         ###   ########.fr       */
+/*   Updated: 2022/11/08 17:11:00 by tashimiz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_dnode	*dnode_new(int num)
+t_dnode	*dnode_new(size_t num)
 {
 	t_dnode	*new;
 
@@ -37,7 +37,7 @@ t_dstack	*dstack_init(void)
 	return (stack);
 }
 
-void	dstack_push_front(t_dstack *stack, int num)
+void	dstack_push_front(t_dstack *stack, size_t num)
 {
 	t_dnode	*nil;
 	t_dnode	*new;
@@ -63,7 +63,7 @@ void	dstack_push_front(t_dstack *stack, int num)
 	stack->size += 1;
 }
 
-void	dstack_push_back(t_dstack *stack, int num)
+void	dstack_push_back(t_dstack *stack, size_t num)
 {
 	t_dnode	*nil;
 	t_dnode	*new;
@@ -101,7 +101,7 @@ void	dstack_print(t_dstack *stack)
 	printf("Current stack(n = %zu): ", stack->size);
 	while (current != NULL && current != nil)
 	{
-		printf("%d ", current->num);
+		printf("%zu ", current->num);
 		current = current->next;
 	}
 	puts("");

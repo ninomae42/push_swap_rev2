@@ -6,7 +6,7 @@
 /*   By: tashimiz <tashimiz@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 16:46:51 by tashimiz          #+#    #+#             */
-/*   Updated: 2022/11/06 16:46:51 by tashimiz         ###   ########.fr       */
+/*   Updated: 2022/11/08 17:12:09 by tashimiz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ bool	is_stack_sorted(t_dstack *stack)
 	return (true);
 }
 
-bool	is_lte_key_exist(t_dstack *stack, int key)
+bool	is_lte_key_exist(t_dstack *stack, size_t key)
 {
 	t_dnode	*nil;
 	t_dnode	*current;

@@ -6,7 +6,7 @@
 /*   By: tashimiz <tashimiz@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 16:44:03 by tashimiz          #+#    #+#             */
-/*   Updated: 2022/11/06 16:44:05 by tashimiz         ###   ########.fr       */
+/*   Updated: 2022/11/08 17:26:39 by tashimiz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 // data stack
 typedef struct s_data_node
 {
-	int					num;
+	size_t				num;
 	struct s_data_node	*next;
 	struct s_data_node	*prev;
 }	t_data_node;
@@ -70,6 +70,7 @@ typedef struct s_controller
 	t_dstack	*stack_a;
 	t_dstack	*stack_b;
 	t_ops		*ops;
+	int			*original_array;
 	int			*sorted_array;
 }	t_controller;
 
@@ -79,9 +80,9 @@ typedef t_controller		t_cont;
 
 // data_stack.c
 t_dstack	*dstack_init(void);
-t_dnode		*dnode_new(int num);
-void		dstack_push_front(t_dstack *stack, int num);
-void		dstack_push_back(t_dstack *stack, int num);
+t_dnode		*dnode_new(size_t num);
+void		dstack_push_front(t_dstack *stack, size_t num);
+void		dstack_push_back(t_dstack *stack, size_t num);
 void		dstack_print(t_dstack *stack);
 
 // data_stack2.c
@@ -153,7 +154,7 @@ void		merge_sort(int *a, int *buf, size_t left, size_t right);
 
 // sort_utils.c
 bool		is_stack_sorted(t_dstack *stack);
-bool		is_lte_key_exist(t_dstack *stack, int key);
+bool		is_lte_key_exist(t_dstack *stack, size_t key);
 
 // sort_lte5.c
 void		sort_lte_five(t_cont *controller);
