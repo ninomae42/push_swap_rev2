@@ -18,3 +18,5 @@ compile_commands.json
 lab/
 test/
 push_swap_tester/
+checker
+result.log

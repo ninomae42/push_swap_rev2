@@ -6,7 +6,7 @@
 /*   By: tashimiz <tashimiz@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 16:44:03 by tashimiz          #+#    #+#             */
-/*   Updated: 2022/11/07 18:33:51 by tashimiz         ###   ########.fr       */
+/*   Updated: 2022/11/08 06:05:45 by tashimiz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -167,5 +167,19 @@ size_t		get_steps_to_key_from_bottom(t_dstack *stack, int key);
 
 // sort_lte5.c
 void		sort_lte_five(t_cont *controller);
+
+// nsort_main.c
+void		sort_insertion(t_cont *cont);
+
+// nsort_utils.c
+void		print_stack(t_cont *cont);
+int			get_max(t_dstack *stack);
+int			get_min(t_dstack *stack);
+
+// nsort_utils2.c
+size_t		get_costs_from_top(t_dstack *stack, int key);
+size_t		get_costs_from_bottom(t_dstack *stack, int key);
+size_t		get_insert_costs_from_top(t_dstack *stack, int value);
+size_t		get_insert_costs_from_bottom(t_dstack *stack, int value);
 
 #endif
