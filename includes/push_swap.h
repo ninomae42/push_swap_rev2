@@ -6,7 +6,7 @@
 /*   By: tashimiz <tashimiz@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 16:44:03 by tashimiz          #+#    #+#             */
-/*   Updated: 2022/11/08 17:53:25 by tashimiz         ###   ########.fr       */
+/*   Updated: 2022/11/08 19:52:21 by tashimiz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ void		dstack_push_back(t_dstack *stack, size_t num);
 void		dstack_print(t_dstack *stack);
 
 // data_stack2.c
-int			dstack_peek(t_dstack *stack);
+size_t			dstack_peek(t_dstack *stack);
 void		dstack_erace(t_dstack *stack, t_dnode *node);
 void		dstack_pop_front(t_dstack *stack);
 void		dstack_clear(t_dstack *stack);
