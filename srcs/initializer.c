@@ -6,7 +6,7 @@
 /*   By: tashimiz <tashimiz@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 16:45:47 by tashimiz          #+#    #+#             */
-/*   Updated: 2022/11/06 16:45:48 by tashimiz         ###   ########.fr       */
+/*   Updated: 2022/11/08 17:32:04 by tashimiz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ t_cont	*init_push_swap(int argc, char **argv)
 	controller->stack_a = dstack_init();
 	controller->stack_b = dstack_init();
 	controller->ops = ops_init();
-	controller->sorted_array = NULL;
+	controller->original_array = (int *)malloc_or_exit(
+			sizeof(int) * (argc - 1));
+	controller->sorted_array = (int *)malloc_or_exit(sizeof(int) * (argc - 1));
 	return (controller);
 }
 
@@ -43,42 +45,44 @@ void	receive_cmdline_argument(t_cont *controller)
 			ft_putstr_fd(ERROR_MSG, STDERR_FILENO);
 			exit(EXIT_FAILURE);
 		}
-		dstack_push_back(controller->stack_a, ret);
+		controller->original_array[i - 1] = ret;
+		controller->sorted_array[i - 1] = ret;
 		i++;
 	}
 }
 
 void	sort_and_check_duplication(t_cont *controller)
 {
-	int	*buf;
-	int	*array;
+	int		*buf;
+	int		*array;
+	size_t	size;
 
-	buf = (int *)malloc(sizeof(int) * controller->stack_a->size);
-	array = stack_to_array(controller->stack_a);
-	merge_sort(array, buf, 0, controller->stack_a->size);
-	if (is_duplicate_exist(array, controller->stack_a->size))
+	size = controller->argc - 1;
+	buf = (int *)malloc(sizeof(int) * size);
+	array = controller->sorted_array;
+	merge_sort(array, buf, 0, size);
+	if (is_duplicate_exist(array, size))
 	{
 		ft_putstr_fd(ERROR_MSG, STDERR_FILENO);
 		exit(EXIT_FAILURE);
 	}
 	free(buf);
-	controller->sorted_array = array;
 }
 
 void	compress(t_cont *controller)
 {
-	int		*array;
-	t_dnode	*nil;
-	t_dnode	*current;
 	size_t	size;
+	size_t	i;
+	size_t	tmp;
 
-	array = controller->sorted_array;
-	nil = controller->stack_a->nil;
-	current = nil->next;
-	size = controller->stack_a->size;
-	while (current != NULL && current != nil)
+	i = 0;
+	size = controller->argc - 1;
+	tmp = 0;
+	while (i < size)
 	{
-		current->num = find_index_of_key(array, size, current->num);
-		current = current->next;
+		tmp = find_index_of_key(controller->sorted_array, size,
+				controller->original_array[i]);
+		dstack_push_back(controller->stack_a, tmp);
+		i++;
 	}
 }

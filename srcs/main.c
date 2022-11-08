@@ -10,11 +10,16 @@ int	main(int argc, char **argv)
 	receive_cmdline_argument(controller);
 	sort_and_check_duplication(controller);
 
+	print_array(controller->original_array, controller->argc - 1);
+	puts("");
+	print_array(controller->sorted_array, controller->argc - 1);
+	puts("");
+
 	/* dstack_print(controller->stack_a); */
 	/* dstack_print(controller->stack_b); */
 	/* puts(""); */
 
-	/* print_array(controller->sorted_array, controller->stack_a->size); */
+	/* print_array(controller->sorted_array, controller->argc - 1); */
 	/* puts(""); */
 
 	compress(controller);
@@ -23,7 +28,7 @@ int	main(int argc, char **argv)
 	puts("");
 
 	/* sort_lte_three(controller); */
-	sort_lte_five(controller);
+	/* sort_lte_five(controller); */
 	dstack_print(controller->stack_a);
 	puts("");
 
