@@ -6,7 +6,7 @@
 /*   By: tashimiz <tashimiz@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 16:46:23 by tashimiz          #+#    #+#             */
-/*   Updated: 2022/11/06 16:46:24 by tashimiz         ###   ########.fr       */
+/*   Updated: 2022/11/10 22:34:47 by tashimiz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,24 +59,6 @@ void	ops_push_back(t_ops *ops, t_eops operation)
 		nil->prev = new;
 	}
 	ops->size += 1;
-}
-
-void	ops_print(t_ops *ops)
-{
-	t_opsnode	*nil;
-	t_opsnode	*current;
-
-	if (ops == NULL || ops->size == 0 || ops->nil == NULL)
-		return ;
-	nil = ops->nil;
-	current = nil->next;
-	printf("Operations(%zu): ", ops->size);
-	while (current != NULL && current != nil)
-	{
-		printf("%s ", enum_ops_to_string(current->operation));
-		current = current->next;
-	}
-	puts("");
 }
 
 char	*enum_ops_to_string(t_eops operation)

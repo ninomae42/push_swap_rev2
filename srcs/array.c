@@ -6,7 +6,7 @@
 /*   By: tashimiz <tashimiz@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 16:44:28 by tashimiz          #+#    #+#             */
-/*   Updated: 2022/11/06 16:44:29 by tashimiz         ###   ########.fr       */
+/*   Updated: 2022/11/10 22:32:53 by tashimiz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,21 +32,6 @@ int	*stack_to_array(t_dstack *stack)
 		i++;
 	}
 	return (array);
-}
-
-void	print_array(int *array, size_t size)
-{
-	size_t	i;
-
-	if (array == NULL)
-		return ;
-	i = 0;
-	printf("Current array(%zu): ", size);
-	while (i < size)
-	{
-		printf("%d ", array[i]);
-		i++;
-	}
 }
 
 bool	is_duplicate_exist(int *array, size_t size)

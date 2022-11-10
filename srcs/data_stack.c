@@ -6,7 +6,7 @@
 /*   By: tashimiz <tashimiz@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 16:45:10 by tashimiz          #+#    #+#             */
-/*   Updated: 2022/11/08 17:11:00 by tashimiz         ###   ########.fr       */
+/*   Updated: 2022/11/10 22:33:04 by tashimiz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,22 +87,4 @@ void	dstack_push_back(t_dstack *stack, size_t num)
 		nil->prev = new;
 	}
 	stack->size += 1;
-}
-
-void	dstack_print(t_dstack *stack)
-{
-	t_dnode	*nil;
-	t_dnode	*current;
-
-	if (stack == NULL || stack->size == 0 || stack->nil == NULL)
-		return ;
-	nil = stack->nil;
-	current = nil->next;
-	printf("Current stack(n = %zu): ", stack->size);
-	while (current != NULL && current != nil)
-	{
-		printf("%zu ", current->num);
-		current = current->next;
-	}
-	puts("");
 }
