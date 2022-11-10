@@ -6,7 +6,7 @@
 /*   By: tashimiz <tashimiz@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 16:46:28 by tashimiz          #+#    #+#             */
-/*   Updated: 2022/11/06 16:46:29 by tashimiz         ###   ########.fr       */
+/*   Updated: 2022/11/10 19:34:45 by tashimiz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,18 @@ void	ops_clear(t_ops *ops)
 	}
 	nil->next = nil;
 	nil->prev = nil;
+}
+
+void	ops_print_result(t_cont *cont)
+{
+	t_opsnode	*nil;
+	t_opsnode	*current;
+
+	nil = cont->ops->nil;
+	current = nil->next;
+	while (current != NULL && current != nil)
+	{
+		ft_putendl_fd(enum_ops_to_string(current->operation), STDOUT_FILENO);
+		current = current->next;
+	}
 }
