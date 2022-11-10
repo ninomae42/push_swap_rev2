@@ -6,13 +6,13 @@
 /*   By: tashimiz <tashimiz@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 16:45:18 by tashimiz          #+#    #+#             */
-/*   Updated: 2022/11/06 16:45:20 by tashimiz         ###   ########.fr       */
+/*   Updated: 2022/11/08 19:52:39 by tashimiz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	dstack_peek(t_dstack *stack)
+size_t	dstack_peek(t_dstack *stack)
 {
 	t_dnode	*nil;
 

@@ -6,7 +6,7 @@
 /*   By: tashimiz <tashimiz@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 16:45:47 by tashimiz          #+#    #+#             */
-/*   Updated: 2022/11/08 17:32:04 by tashimiz         ###   ########.fr       */
+/*   Updated: 2022/11/10 21:08:56 by tashimiz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ t_cont	*init_push_swap(int argc, char **argv)
 	controller->original_array = (int *)malloc_or_exit(
 			sizeof(int) * (argc - 1));
 	controller->sorted_array = (int *)malloc_or_exit(sizeof(int) * (argc - 1));
+	controller->cm = init_cost_manager();
 	return (controller);
 }
 
@@ -85,4 +86,24 @@ void	compress(t_cont *controller)
 		dstack_push_back(controller->stack_a, tmp);
 		i++;
 	}
+}
+
+t_cm	*init_cost_manager(void)
+{
+	t_cost_manager	*cm;
+
+	cm = (t_cost_manager *)malloc_or_exit(sizeof(t_cost_manager));
+	cm->cost_a = 0;
+	cm->cost_b = 0;
+	cm->is_reverse_a = false;
+	cm->is_reverse_b = false;
+	cm->total_cost = 0;
+	cm->min_cost = 0;
+	cm->min_cost_number = 0;
+	cm->rotate_cnt_both = 0;
+	cm->rotate_cnt_a = 0;
+	cm->rotate_cnt_b = 0;
+	cm->rotate_is_reverse_a = false;
+	cm->rotate_is_reverse_b = false;
+	return (cm);
 }

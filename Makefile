@@ -10,6 +10,7 @@ SRCS := main.c \
 		utils.c \
 		data_stack.c \
 		data_stack2.c \
+		data_stack3.c \
 		ops_stack.c \
 		ops_stack2.c \
 		ops_swap.c \
@@ -21,6 +22,16 @@ SRCS := main.c \
 		merge_sort.c \
 		sort_utils.c \
 		sort_lte5.c \
+		sort_main.c \
+		sort_helper.c \
+		sort_cost.c \
+		sort_cost_calcuration.c \
+		sort_pushback_stack_a.c \
+		sort_cost_stack_a.c \
+		sort_cost_stack_b.c \
+		sort_cost_pushback_stack_a.c \
+		sort_rotate_push_info.c \
+		sort_set_rotate_push_info.c \
 
 OBJS := $(SRCS:.c=.o)
 SRCS := $(addprefix $(SRCS_DIR)/, $(SRCS))

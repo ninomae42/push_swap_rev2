@@ -6,7 +6,7 @@
 /*   By: tashimiz <tashimiz@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 16:44:03 by tashimiz          #+#    #+#             */
-/*   Updated: 2022/11/08 17:26:39 by tashimiz         ###   ########.fr       */
+/*   Updated: 2022/11/10 21:01:02 by tashimiz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,27 @@ typedef struct s_operations
 
 typedef t_operations		t_ops;
 
+// insertion sort cost manager
+typedef struct s_cost_manager
+{
+	size_t	cost_a;
+	size_t	cost_b;
+	bool	is_reverse_a;
+	bool	is_reverse_b;
+
+	size_t	total_cost;
+	size_t	min_cost;
+	size_t	min_cost_number;
+
+	size_t	rotate_cnt_both;
+	size_t	rotate_cnt_a;
+	size_t	rotate_cnt_b;
+	bool	rotate_is_reverse_a;
+	bool	rotate_is_reverse_b;
+}	t_cost_manager;
+
+typedef t_cost_manager		t_cm;
+
 // controller
 typedef struct s_controller
 {
@@ -72,6 +93,7 @@ typedef struct s_controller
 	t_ops		*ops;
 	int			*original_array;
 	int			*sorted_array;
+	t_cm		*cm;
 }	t_controller;
 
 typedef t_controller		t_cont;
@@ -86,11 +108,14 @@ void		dstack_push_back(t_dstack *stack, size_t num);
 void		dstack_print(t_dstack *stack);
 
 // data_stack2.c
-int			dstack_peek(t_dstack *stack);
+size_t		dstack_peek(t_dstack *stack);
 void		dstack_erace(t_dstack *stack, t_dnode *node);
 void		dstack_pop_front(t_dstack *stack);
 void		dstack_clear(t_dstack *stack);
 t_dstack	*dstack_copy(t_dstack *stack);
+
+// data_stack3.c
+bool		dstack_find(t_dstack *stack, size_t target);
 
 // ft_atoi.c
 int			ft_atoi(const char *str);
@@ -104,7 +129,10 @@ bool		is_argument_valid(const char *s);
 void		*malloc_or_exit(size_t size);
 
 // ft_putstr_fd.c
+size_t		ft_strlen(const char *s);
+void		ft_putchar_fd(const char c, int fd);
 void		ft_putstr_fd(const char *s, int fd);
+void		ft_putendl_fd(const char *s, int fd);
 
 // ops_stack.c
 t_opsnode	*opsnode_new(t_eops operation);
@@ -116,6 +144,7 @@ void		ops_print(t_ops *ops);
 // ops_stack2.c
 void		ops_erace(t_ops *ops, t_opsnode *node);
 void		ops_clear(t_ops *ops);
+void		ops_print_result(t_cont *cont);
 
 // ops_swap.c
 void		swap_a(t_dstack *stack_a, t_ops *ops);
@@ -158,5 +187,46 @@ bool		is_lte_key_exist(t_dstack *stack, size_t key);
 
 // sort_lte5.c
 void		sort_lte_five(t_cont *controller);
+void		sort_lte_three(t_cont *controller);
+
+// sort_main.c
+void		sort_main(t_controller *cont);
+
+// sort_helper.c
+size_t		get_max(t_dstack *stack);
+size_t		get_min(t_dstack *stack);
+
+// sort_cost.c
+size_t		get_cost_from_top(t_dstack *stack, size_t value);
+size_t		get_cost_from_bottom(t_dstack *stack, size_t value);
+
+// sort_cost_calcuration.c
+void		traverse_and_calculate_cost(t_cont *cont);
+
+// sort_cost_stack_a.c
+void		calculate_cost_stack_a(
+				t_dstack *stack, size_t b_top, t_cm *cost_manager);
+
+// sort_cost_stack_b.c
+void		calculate_cost_stack_b(
+				t_dstack *stack, size_t a_top, t_cm *cost_manager);
+
+// sort_cost_pushback_stack_a.c
+size_t		calculate_cost_pushback_stack_a(
+				t_dstack *stack, size_t b_top, bool *is_reverse);
+
+// sort_manager.c
+t_cm		*init_cost_manager(void);
+
+// sort_pushback_stack_a.c
+void		push_back_from_b_to_a(t_controller *cont);
+void		seichi(t_controller *cont);
+
+// sort_rotate_push_info.c
+void		rotate_push_with_cost_manager_info(
+				t_cont *cont, t_cost_manager *cm);
+
+// sort_set_rotate_push_info.c
+void		set_rotate_and_push_info(t_cost_manager *cm);
 
 #endif

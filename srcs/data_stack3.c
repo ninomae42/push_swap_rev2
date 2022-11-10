@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   data_stack3.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tashimiz <tashimiz@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/10 20:55:13 by tashimiz          #+#    #+#             */
-/*   Updated: 2022/11/10 20:55:15 by tashimiz         ###   ########.fr       */
+/*   Created: 2022/11/10 20:58:17 by tashimiz          #+#    #+#             */
+/*   Updated: 2022/11/10 20:58:18 by tashimiz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+bool	dstack_find(t_dstack *stack, size_t target)
 {
-	t_cont		*controller;
+	t_dnode	*nil;
+	t_dnode	*current;
 
-	if (argc < 2)
-		exit(EXIT_SUCCESS);
-	controller = init_push_swap(argc, argv);
-	receive_cmdline_argument(controller);
-	sort_and_check_duplication(controller);
-	compress(controller);
-	sort_main(controller);
-	ops_print_result(controller);
-	exit(EXIT_SUCCESS);
+	nil = stack->nil;
+	current = nil->next;
+	while (current != NULL && current != nil)
+	{
+		if (current->num == target)
+			return (true);
+		current = current->next;
+	}
+	return (false);
 }

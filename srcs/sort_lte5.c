@@ -6,7 +6,7 @@
 /*   By: tashimiz <tashimiz@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 16:46:45 by tashimiz          #+#    #+#             */
-/*   Updated: 2022/11/06 16:46:46 by tashimiz         ###   ########.fr       */
+/*   Updated: 2022/11/08 23:08:10 by tashimiz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static void	sort_three_base(t_dstack *stack, t_ops *ops)
 		reverse_rotate_a(stack, ops);
 }
 
-static void	sort_lte_three(t_cont *controller)
+void	sort_lte_three(t_cont *controller)
 {
 	if (is_stack_sorted(controller->stack_a))
 		return ;
@@ -57,7 +57,7 @@ static void	sort_lte_three(t_cont *controller)
 }
 
 static void	sort_five_base(
-		t_dstack *stack_a, t_dstack *stack_b, t_ops *ops, int key)
+		t_dstack *stack_a, t_dstack *stack_b, t_ops *ops, size_t key)
 {
 	while (is_lte_key_exist(stack_a, key))
 	{

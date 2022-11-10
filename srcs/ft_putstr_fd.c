@@ -6,7 +6,7 @@
 /*   By: tashimiz <tashimiz@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 16:45:39 by tashimiz          #+#    #+#             */
-/*   Updated: 2022/11/06 16:45:40 by tashimiz         ###   ########.fr       */
+/*   Updated: 2022/11/10 19:33:40 by tashimiz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,11 @@ size_t	ft_strlen(const char *s)
 	while (s[len] != '\0')
 		len++;
 	return (len);
+}
+
+void	ft_putchar_fd(const char c, int fd)
+{
+	write(fd, &c, sizeof(char));
 }
 
 void	ft_putstr_fd(const char *s, int fd)
@@ -39,4 +44,12 @@ void	ft_putstr_fd(const char *s, int fd)
 		len -= bytes_written;
 	}
 	write(fd, s, len);
+}
+
+void	ft_putendl_fd(const char *s, int fd)
+{
+	if (s == NULL)
+		return ;
+	ft_putstr_fd(s, fd);
+	ft_putchar_fd('\n', fd);
 }
