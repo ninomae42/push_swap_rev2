@@ -6,7 +6,7 @@
 /*   By: tashimiz <tashimiz@student.42tokyo.jp      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 16:45:47 by tashimiz          #+#    #+#             */
-/*   Updated: 2022/11/08 17:32:04 by tashimiz         ###   ########.fr       */
+/*   Updated: 2022/11/08 21:56:55 by tashimiz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ t_cont	*init_push_swap(int argc, char **argv)
 	controller->original_array = (int *)malloc_or_exit(
 			sizeof(int) * (argc - 1));
 	controller->sorted_array = (int *)malloc_or_exit(sizeof(int) * (argc - 1));
+	controller->cm = init_cost_manager();
 	return (controller);
 }
 
