@@ -41,7 +41,8 @@ INC_DIR := ./includes
 INCLUDES := $(addprefix -I, $(INC_DIR))
 
 CC := cc
-CFLAGS := -Wall -Wextra -Werror -fsanitize=address -g -fno-omit-frame-pointer
+# CFLAGS := -Wall -Wextra -Werror -fsanitize=address -g -fno-omit-frame-pointer
+CFLAGS := -Wall -Wextra -Werror
 RM := rm -rf
 
 .PHONY: all
